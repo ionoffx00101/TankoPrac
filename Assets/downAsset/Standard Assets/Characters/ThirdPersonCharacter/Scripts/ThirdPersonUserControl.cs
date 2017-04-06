@@ -13,7 +13,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        
+        /* JoyStick 추가해본것 - 시작 */
+        public VirtualJoystick joyStick;
+        /* JoyStick 추가해본것 - 끝 */
+
         private void Start()
         {
             // get the transform of the main camera
@@ -45,9 +48,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
+            /* JoyStick때문에 빼본것 - 시작 */
+            /*
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
+            */
+            /* JoyStick때문에 빼본것 - 끝 */
+
+            /* JoyStick 추가해본것 - 시작 */
+            float h = joyStick.Horizontal();
+            float v = joyStick.Vertical();
+            /* JoyStick 추가해본것 - 끝 */
+
             bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character

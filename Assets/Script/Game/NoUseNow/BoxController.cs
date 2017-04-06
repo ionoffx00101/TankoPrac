@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour 
 {
-	GameObject[] allBox;
+    // GameObject[] allBox;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-		allBox = GameObject.FindGameObjectsWithTag ("Box");
+		// allBox = GameObject.FindGameObjectsWithTag ("Box");
 	}
 
 	void FixedUpdate ()
