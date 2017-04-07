@@ -34,7 +34,7 @@ public class PlayerAndBox : MonoBehaviour
     private void OnCollisionEnter (Collision other)
     {
         // other에는 충돌한 객체가 들어있다.
-
+        
         // 만난 게임오브젝트의 태그가 box면
         if ( other.transform.tag == "Box" )
         {
@@ -66,11 +66,22 @@ public class PlayerAndBox : MonoBehaviour
 
     private void BoxFollowPlayer (float h, float v)
     {
+        // 움직이는 속도
+        float speed = Vector3.Dot(meetBox.rigidbody.velocity , transform.forward);
+
+        // 사람 객체 좌표 - 충돌객체 좌표을 통해 가야할 좌표 방향을 잡을 수 있을것같다.
+        // 근데 사람 객체를 어떻게 잡아
+
+
+
         // Debug.Log("만나고 버튼도 눌려있는 상태"); // 아주 효과적으로 만남
         Debug.Log(meetBox.rigidbody.position);
         //meetBox.rigidbody.position = new Vector3(meetBox.rigidbody.position.x + (v * Time.deltaTime), meetBox.rigidbody.position.z + (h * Time.deltaTime));
         // 기존 위치에서 플레이어가 가던 방향으로 -(10)?
-        meetBox.rigidbody.position = new Vector3(meetBox.rigidbody.position.x+5 , meetBox.rigidbody.position.y ,meetBox.rigidbody.position.z-5);
+        // 숫자로 된 부분을 어디서 따로 만들어야한다
+        // 플레이어가 왼쪽으로 가는거 화나낟
+        // meetBox.rigidbody.position = new Vector3(meetBox.rigidbody.position.x+5 , meetBox.rigidbody.position.y ,meetBox.rigidbody.position.z-5);
+        meetBox.rigidbody.position = new Vector3(((meetBox.rigidbody.position.x-5)- meetBox.rigidbody.position.x )*speed, meetBox.rigidbody.position.y ,(meetBox.rigidbody.position.z-5)- meetBox.rigidbody.position.z);
         Debug.Log(meetBox.rigidbody.position);
 
     }
