@@ -9,11 +9,12 @@ public class BoxMove : MonoBehaviour
     // f fire1
     // wasd move
 
-    //GameObject[] allBox;
+    // GameObject[] allBox;
 
     void Start()
     {
-        //allBox = GameObject.FindGameObjectsWithTag ("Box");
+        // input 생성해두기?
+        // allBox = GameObject.FindGameObjectsWithTag ("Box");
     }
 
     // Update is called once per frame
